@@ -42,4 +42,8 @@ export class UsersService {
   remove(id: number) {
     return this.repo.delete(id);
   }
+
+  async findOneAny(whereObj: Partial<UserCreateDto>) {
+    return this.repo.findOne({ where: whereObj })
+  }
 }

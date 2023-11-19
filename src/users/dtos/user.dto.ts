@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 import {
   IsEmail,
   IsOptional,
@@ -15,6 +15,11 @@ export class UserCreateDto {
 
   @IsString()
   name: string;
+
+  @IsString()
+  @Exclude()
+  @IsOptional()
+  token: string;
 }
 
 export class UserUpdateDto {
@@ -40,4 +45,13 @@ export class UserDto {
 
   @Expose()
   name: string;
+}
+
+export class UserLoginDto {
+  @IsString()
+  email: string;
+
+  @IsString()
+  password: string;
+
 }

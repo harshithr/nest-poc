@@ -15,6 +15,9 @@ export class User {
   @Column()
   name: string;
 
+  @Column()
+  token: string;
+
   @AfterInsert()
   logInsert() {
     console.log(`Inserted new User ${this.id}`);
